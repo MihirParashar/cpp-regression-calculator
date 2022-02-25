@@ -1,20 +1,26 @@
-// main.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-
 #include <iostream>
+#include <math.h>
+#include "point.h"
 
+using namespace std;
 int main()
 {
-    std::cout << "Hello World!\n";
+	const int n = 7;
+	Point points[n] = { Point(1, 1.5f), Point(2, 3.8f), Point(3, 6.7f), Point(4, 9.0f), Point(5, 11.2f), Point(6, 13.6f), Point(7, 16.0f) };
+
+	float sumX = 0, sumY = 0, sumXY = 0, sumXSquared = 0;
+
+	for (int i = 0; i < n; i++)
+	{
+		float x = points[i].x;
+		float y = points[i].y;
+		sumX += x;
+		sumY += y;
+		sumXY += x * y;
+		sumXSquared += pow(x, 2);
+	}
+
+	float m = (n * sumXY - sumX * sumY) / (n * sumXSquared - pow(sumX, 2));
+	float b = (sumY - m * sumX) / n;
+	cout << "Equation: y=" << m << "x+" << b << endl;
 }
-
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
