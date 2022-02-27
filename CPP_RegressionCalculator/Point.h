@@ -1,9 +1,8 @@
 #pragma once
-class Point {
-public:
-	float x;
-	float y;
-	Point(float x, float y) {
+struct Point {
+	double x;
+	double y;
+	Point(double x, double y) {
 		this->x = x;
 		this->y = y;
 	}

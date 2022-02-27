@@ -139,10 +139,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Main.cpp" />
+    <ClCompile Include="RegressionLineAlgorithm.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="line.h" />
     <ClInclude Include="point.h" />
+    <ClInclude Include="regression_line.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
