@@ -1,7 +1,4 @@
-#include "point.h"
 #include "regression_line.h"
-#include "line.h"
-#include <math.h>
 
 Line GenerateRegressionLine(std::vector<Point> data) {
 

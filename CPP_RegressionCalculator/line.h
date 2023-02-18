@@ -4,6 +4,6 @@ struct Line {
 	double slope;
 	double yIntercept;
 	Line(double slope, double yIntercept);
-	std::string to_string(int decimalRound);
+	std::string to_string(int decimalPrecision);
 	double round_to_decimal(double value, int precision);
 };

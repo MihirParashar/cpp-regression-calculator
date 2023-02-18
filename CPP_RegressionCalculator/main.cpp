@@ -8,8 +8,26 @@
 
 int main()
 {
-	std::vector<Point> data{Point(1, 1.5f), Point(2, 3.8f), Point(3, 6.7f), Point(4, 9.0f), Point(5, 11.2f), Point(6, 13.6f), Point(7, 16.0f)};
+	const int DECIMAL_PRECISION = 3;
+
+	std::vector<Point> data;
+	int sample_size = 0;
+	
+	std::cout << "Enter the number of points: ";
+	std::cin >> sample_size;
+
+	for (int i = 1; i <= sample_size; i++) {
+		double x = 0;
+		double y = 0;
+		std::cout << "Point " << i << " x: ";
+		std::cin >> x;
+		std::cout << "Point " << i << " y: ";
+		std::cin >> y;
+		
+		data.push_back(Point(x, y));
+	}
+
 
 	Line line = GenerateRegressionLine(data);
-	std::cout << "Equation: " + line.to_string(3);
+	std::cout << std::setprecision(DECIMAL_PRECISION) << "Equation: " + line.to_string(DECIMAL_PRECISION);
 }
