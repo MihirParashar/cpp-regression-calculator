@@ -1,4 +1,5 @@
-#include "regression_line.h"
+#include "LinearRegression.h"
+#include <iostream>
 
 Line GenerateRegressionLine(std::vector<Point> data) {
 
@@ -17,5 +18,6 @@ Line GenerateRegressionLine(std::vector<Point> data) {
 	double slope = (length * sumXY - sumX * sumY) / (length * sumXSquared - pow(sumX, 2));
 	double yIntercept = (sumY - slope * sumX) / length;
 
+	std::cout << (length * sumXSquared - pow(sumX, 2)) << std::endl;
 	return Line(slope, yIntercept);
 }

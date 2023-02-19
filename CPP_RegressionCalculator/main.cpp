@@ -2,9 +2,9 @@
 #include <iomanip>
 #include <math.h>
 #include <vector>
-#include "point.h"
-#include "line.h"
-#include "regression_line.h"
+#include "Point.h"
+#include "Line.h"
+#include "LinearRegression.h"
 
 int main()
 {
@@ -13,8 +13,15 @@ int main()
 	std::vector<Point> data;
 	int sample_size = 0;
 	
-	std::cout << "Enter the number of points: ";
-	std::cin >> sample_size;
+	do {
+		std::cout << "Enter the number of points: ";
+		std::cin >> sample_size;
+
+		if (sample_size < 2) {
+			std::cout << "Must input at least two points" << std::endl;
+		}
+	} while (sample_size < 2);
+
 
 	for (int i = 1; i <= sample_size; i++) {
 		double x = 0;
@@ -29,5 +36,5 @@ int main()
 
 
 	Line line = GenerateRegressionLine(data);
-	std::cout << std::setprecision(DECIMAL_PRECISION) << "Equation: " + line.to_string(DECIMAL_PRECISION);
+	std::cout << "Equation: " + line.to_string(DECIMAL_PRECISION);
 }
